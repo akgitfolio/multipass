@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - name: user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    passwd: pwd # Replace with the hashed password
+chpasswd:
+  list: |
+    user:pwd
+  expire: false
+ssh_pwauth: True
+runcmd:
+  - mkdir -p /var/creation
+  - date > /var/creation/timestamp.txt
