@@ -1,0 +1,1 @@
+multipass delete --all && multipass purge  && multipass list
